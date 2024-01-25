@@ -69,7 +69,7 @@ public class PessoaJuridicaController {
 
         return ResponseEntity.ok(this.mapper.map(pessoaJuridica, DadosClientePJResponseDTO.class));
     }
-
+    
     @PutMapping("/{id}")
     public ResponseEntity<DadosClientePJResponseDTO> atualizarDadosClientePessoaJuridica(@PathVariable Long id, @RequestBody @Valid DadosClientePJRequestDTO dadosCliente) throws BusinessException {
         var pessoaJuridica = this.pessoaJuridicaService.atualizarClientePessoaJuridica(this.mapper.map(dadosCliente, PessoaJuridica.class));
