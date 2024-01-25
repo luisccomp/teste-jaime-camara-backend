@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:jaime_camara
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+teste:
+  jaime-camara:
+    jwtSecret: 'abacaxi'

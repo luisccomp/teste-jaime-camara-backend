@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.2</version>
+		<version>3.1.8</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.jaime.camara</groupId>
 	<artifactId>teste-jaime-camara-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>teste-jaime-camara-backend</name>
-	<description>Aplicação para o teste para a vaga Fullstack JaimeCamara</description>
+	<description>Backend Teste Jaime Camara</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -23,7 +23,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -51,8 +51,23 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>java-jwt</artifactId>
+			<version>4.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>3.0.0</version>
+		  </dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -63,6 +78,9 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<image>
+						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
+					</image>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
